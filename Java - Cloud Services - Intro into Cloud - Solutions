@@ -1,0 +1,135 @@
+Java - Cloud Services - Intro into Cloud
+
+1. Calculate costs difference between on-premises one server vs cloud solutions (IaaS - infrastructure as a service).
+
+Take into consideration things like: 
+- costs of hardware
+- power consumption
+- space
+
+Compare different cloud providers (AWS, Azure). Take into consideration a period of 1 month work. 
+
+Asumme:
+- price per kWh as 11 cents
+- space cost as $100 per square meter
+
+Time: ~ 30 min
+Level of Difficulty: medium
+
+SOLUTION:
+
+On-Premises Solution:
+
+• Cost of server hardware
+
+Let's chose a Dell PowerEdge R320, with a cost of $2300.
+Dell PowerEdge R320 1x8 2.5", 1 x E5-2440 2.4GHz Six-Core, 32GB RAM, 2 x 1.92TB SSD
+
+
+https://www.ebay.com/itm/384416937929?epid=1915155265&hash=item598108f7c9:g:dtUAAOSwpb9hW~uI
+
+
+Let's ignore the fact that we would likely need a separate network switch and battery backup for this, additional costs, and assume that these factors are included in our real estate (space) costs.
+
+
+• Power consumption
+
+In terms of power consumption, our Dell R320 is configured with 350W Dual Redundant Power Supplies. 
+Calculating the kWh consumed by these power supplies: 
+
+700W * 744 hours (month) ~ 520 kWh 
+
+This is maximum energy consumption - assuming the server will be up and running the whole month with full power.
+
+In reality, that's probably not possible. 
+So, we will assume that, on average, our power supplies are pulling 30% of their maximum power rating.
+
+520 kWh * 0.3 = 156 kWh
+
+Let's also insert reality in terms of Power Usage Effectiveness (PUE). PUE is the measure of how effectively power is delivered to servers versus being used to power heating and cooling systems, etc.
+An Uptime Institute survey says that PUE averages about 1.7. 
+
+156 kWh * 1.7 ~ 265 kWh
+
+Finally, let's convert this to dollars, assuming price per kWh as 11 cents. 
+
+265 kWh * $0.11 ~ $29
+
+
+• Space
+
+To simplify, we will simply assume a cost of $10 per square foot per month, based on data from Digital Reality Trust. 
+
+We will assume that this cost includes having the server take up space, the network, battery backup, and we’ll hypothetically say it runs in a data center that provides all of that for $10 per square meter per month. 
+
+The Dell R320 dimensions:
+Width 48 cm
+
+
+$10 * 0,48 * 0,48 ~ $23 per month for space.
+
+
+Summary: 
+
+So on-premises:
+
+$2300 (hardaware) + $29 (power) + $23 (space) = $2445 per month.
+
+
+Cloud solution:
+
+Azure: 
+
+An equivalent server in Microsoft Azure IaaS:
+
+D2 SSD 2 cores 7 GB RAM 100 GB disk, will cost somewhere between $193.44 per month to $208.32 per month depending on the data center.
+
+
+
+Summary: 
+
+Cloud will cost $200 per month. 
+This includes the server, power consumption, and space.
+
+
+
+2. Name pros and cons for using cloud vs on-premises.
+
+Time: ~ 15 min
+Level of Difficulty: low
+
+SOLUTION:
+
+On-premises:
+
+Pros:
+- You phisically posessess the hardware, pay for it once and and can sell it anytime
+- It has been already solved and configured for many companies, so it's a known problem and it's easier to find people to maintain it
+- You can customize fully configuration
+
+Cons:
+- Initial cost
+- You can only scale it up by buying additional servers
+- If it's not backed up in regular manner you can easily lose your data
+
+
+
+Cloud:
+
+Pros:
+- No initial cost, so lower cost of ownership
+- Scaling up and down very easily, you pay only for what you need
+- Upgrades and maintenance out of the box
+- Backup in multi-AZ
+- Easily configurable
+- Quick launch of the new products, users can use UI to set up almost everything
+- Analysis and predictions of the costs out of the box
+
+
+
+Cons:
+- For some companies/organisations security of data may be the problem, and vunerability to potential attacks
+- Company/organisation need to rely on external provider availability
+- Limited control
+- Network problems impact significantly on the business
+- Migration from on-premises may be a challenge
